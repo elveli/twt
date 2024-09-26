@@ -2,7 +2,6 @@ import requests
 
 print(f"**Challenge 1** - Make a request to the API and get the first 200 breweries,\n filter these to retrieve only the brewery name and filter out all names containing a numeric character.")
 
-#print(f"{name} premiered on {premiered} on {network}. It summary is {summary}")
 max_per_page = 200
 response_challenge1 = requests.get(f"https://api.openbrewerydb.org/v1/breweries?per_page={max_per_page}")
 
