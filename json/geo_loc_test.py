@@ -8,9 +8,14 @@ printer = PrettyPrinter()
 
 key = os.getenv('OPENCAGE_KEY')
 #print(key)
-url = "http://api.opencagedata.com/geocode/v1/json?key=key&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
+#url = "http://api.opencagedata.com/geocode/v1/json?key=key&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
 
+url1="http://api.opencagedata.com/geocode/v1/json?key="
+url2=key
+url3="&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
 
+url = url1 + url2 + url3
+print(url)
 
 
 response = requests.get(url)
@@ -28,10 +33,11 @@ printer.pprint(data)
 
 '''
 $ python3 geo_loc_test.py
+http://api.opencagedata.com/geocode/v1/json?key=7c250aac0e194cc98584ca2e492cc25e&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1
 {'documentation': 'https://opencagedata.com/api',
  'licenses': [{'name': 'see attribution guide',
                'url': 'https://opencagedata.com/credits'}],
- 'rate': {'limit': 2500, 'remaining': 2498, 'reset': 1727395200},
+ 'rate': {'limit': 2500, 'remaining': 2497, 'reset': 1727395200},
  'results': [{'bounds': {'northeast': {'lat': 52.387833, 'lng': 9.7334894},
                          'southwest': {'lat': 52.387733, 'lng': 9.7333894}},
               'components': {'ISO_3166-1_alpha-2': 'DE',
@@ -63,7 +69,8 @@ $ python3 geo_loc_test.py
  'stay_informed': {'blog': 'https://blog.opencagedata.com',
                    'mastodon': 'https://en.osm.town/@opencage'},
  'thanks': 'For using an OpenCage API',
- 'timestamp': {'created_http': 'Thu, 26 Sep 2024 00:56:11 GMT',
-               'created_unix': 1727312171},
+ 'timestamp': {'created_http': 'Thu, 26 Sep 2024 01:07:13 GMT',
+               'created_unix': 1727312833},
  'total_results': 1}
+~/github/twt/json
 '''
