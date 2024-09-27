@@ -8,15 +8,21 @@ from pprint import PrettyPrinter
 printer = PrettyPrinter()
 
 def enter_city(number):
+    is_alpha = lambda s: s.isalpha()
     city = input(f"Enter name of city {number}: ")
-    return city
+    if is_alpha(city):
+        return city
+    else:
+        print(f"City name {city} contains non-letter chars.")
+        exit(1)
 
 def get_latitude(results, city):
     if results and len(city):
         latitude = results[0]['geometry']['lat']
         return latitude
     else:
-        sys.stderr.write("not found: %s\n" % city)
+        sys.stderr.write("City not found: %s\n" % city)
+        exit(1)
 
 def main():
     key = os.getenv('OPENCAGE_KEY')
@@ -45,11 +51,14 @@ def main():
 
     lat_city1 = get_latitude(results_city1, city1)
     lat_city2 = get_latitude(results_city2, city2)
+    #print(lat_city1,lat_city2)
+
+    more_northern = city1 if lat_city1 > lat_city2 else city2
 
     each_degree_of_latitude = 111 # km
     lat_difference = abs(lat_city1 - lat_city2) * each_degree_of_latitude
 
-    print(f"Latitude difference between {city1} and {city2} is {lat_difference:.2f} km.")
+    print(f"City {more_northern} is more northern. Latitude difference between {city1} and {city2} is {lat_difference:.2f} km.")
 
 if __name__ == "__main__":
     main()
