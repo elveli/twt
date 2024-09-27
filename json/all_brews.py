@@ -1,9 +1,9 @@
 import requests
 
-print(f"**Challenge 1** - Make a request to the API and get the first 200 breweries,\n filter these to retrieve only the brewery name and filter out all names containing a numeric character.")
+print(f"Make a request to the API and get the first 200 breweries,\n filter these to retrieve only the brewery name and filter out all names containing a numeric character.")
 
 max_per_page = 200
-response_challenge1 = requests.get(f"https://api.openbrewerydb.org/v1/breweries?per_page={max_per_page}")
+response_challenge1 = requests.get(f"http://api.openbrewerydb.org/v1/breweries?per_page={max_per_page}")
 
 # filter these to retrieve only the brewery name and filter OUT all names containing a numeric character
 breweries_without_num_char_challenge1 = [
@@ -27,13 +27,13 @@ print("Number of Brewery names without numeric chars:", len(breweries_without_nu
 print()
 
 # Challenge 2
-print("\n**Challenge 2**: Expand the above solution to retrieve all breweries from the API")
+print("\nExpand the above solution to retrieve all breweries from the API")
 
 all_breweries = []
 page = 1
 
 while True:
-    response_challenge2 = requests.get(f"https://api.openbrewerydb.org/v1/breweries?per_page={max_per_page}&page={page}")
+    response_challenge2 = requests.get(f"http://api.openbrewerydb.org/v1/breweries?per_page={max_per_page}&page={page}")
     
     breweries_challenge2 = [
         brewery['name'] 
@@ -47,7 +47,7 @@ while True:
         break
 
     all_breweries.extend(breweries_challenge2)
-    print(f"Processed page: {page}")
+    #print(f"Processed page: {page}")
     page += 1
 
 # Get unique brewery names
