@@ -9,8 +9,9 @@ printer = PrettyPrinter()
 
 def enter_city(number):
     is_alpha = lambda s: s.isalpha()
+    contains_space = lambda s: ' ' in s
     city = input(f"Enter name of city {number}: ")
-    if is_alpha(city):
+    if is_alpha(city) or contains_space(city): # city names needs to contain letters or can have spaces.
         return city
     else:
         print(f"City name {city} contains non-letter chars.")
@@ -29,7 +30,7 @@ def main():
     #print(key)
 
     if not key:
-        print("API key is missing. Please set the OPENCAGE_KEY environment variable.")
+        print("Opencage API key is missing. Please set the OPENCAGE_KEY environment variable.")
         exit(1)
 
     city1 = enter_city(1)
@@ -37,17 +38,11 @@ def main():
 
     geocoder = OpenCageGeocode(key)
 
-    results_city1 = geocoder.geocode(city1, 
-                            no_annotations='1',
-                            verify=certifi.where()
-                            )
+    results_city1 = geocoder.geocode(city1)
+    results_city2 = geocoder.geocode(city2)
 
-    results_city2 = geocoder.geocode(city2, 
-                            no_annotations='1',
-                            verify=certifi.where()
-                            )
     # printer.pprint(results_city1)
-    # printer.pprint(results_city2)
+    #printer.pprint(results_city2)
 
     lat_city1 = get_latitude(results_city1, city1)
     lat_city2 = get_latitude(results_city2, city2)
