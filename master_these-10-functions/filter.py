@@ -12,7 +12,12 @@ print(list(filtered))
 # out
 # ['apple']
 
-filtered2 = filter(lambda x: len(x) > 4, str)
+filtered2 = filter(
+    lambda x: 
+    len(x) > 4, 
+    str
+    )
+
 print(list(filtered2))
 # out
 # ['apple']
@@ -26,3 +31,13 @@ def check_ints(number):
         return False
 
 print(list(filter(check_ints,list_nums)))
+
+# same with lambda
+print(list
+      (filter(
+          lambda x:
+          type(x) == int,
+          list_nums
+      )
+    )
+)
