@@ -25,7 +25,13 @@ data = json.loads(response.text)
 # Extract the location bounds from the results
 if 'results' in data and len(data['results']) > 0:
     first_result = data['results'][0]  # Access the first element of the results list
+    print("in if")
     geometry = first_result.get('geometry')  # Get 'geometry' from the first result
+    formatted = first_result.get('formatted')
+
+    if formatted:
+        printer.pprint(formatted)
+
     if geometry:
         lat = geometry.get('lat')
         printer.pprint(lat)
@@ -34,11 +40,20 @@ if 'results' in data and len(data['results']) > 0:
 else:
     print("No results found in the response.")
 
+'''
+$ pp geo_loc_test.py
+in if
+'Design Offices, Philipsbornstraße 2, 30165 Hanover, Germany'
+52.387783
+dict_keys(['documentation', 'licenses', 'rate', 'results', 'status', 'stay_informed', 'thanks', 'timestamp', 'total_results'])
+(py_envs) ~/github/twt/json [main]
+$
+'''
+
     ''' {'northeast': {'lat': 52.387833, 'lng': 9.7334894},
  'southwest': {'lat': 52.387733, 'lng': 9.7333894}}
  '''
 
-#print(f"{name} premiered on {premiered} on {network}. It summary is {summary}")
 #printer.pprint(data)
 printer.pprint(data.keys())
 
