@@ -38,15 +38,23 @@ print(f"The string '{string_to_remove}' has been removed from the file.")
 
 
 import json
+from rich import print
 
-# Sample JSON data representing values for each day of the year
-# Replace this with your actual JSON data
-json_data = [
-    {"date": "2024-01-01", "value": 10},
-    {"date": "2024-01-02", "value": 20},
-    # ... more data for each day
-    {"date": "2024-12-31", "value": 15}
-]
+json_data = "year_data_2024.json" #"sample_sunrise_data.json"
+
+with open(json_data, "r") as file:
+    json_data = json.load(file)
+
+print(json_data)
+print(len(json_data))
+# # Sample JSON data representing values for each day of the year
+# # Replace this with your actual JSON data
+# json_data = [
+#     {"date": "2024-01-01", "value": 10},
+#     {"date": "2024-01-02", "value": 20},
+#     # ... more data for each day
+#     {"date": "2024-12-31", "value": 15}
+# ]
 
 # Convert JSON data into a list of dictionaries if it's a string
 # json_data = json.loads(json_string)
@@ -57,9 +65,9 @@ max_diff_day = None
 
 # Loop through the data, skipping the first and last days
 for i in range(1, len(json_data) - 1):
-    today_value = json_data[i]['value']
-    yesterday_value = json_data[i - 1]['value']
-    tomorrow_value = json_data[i + 1]['value']
+    today_value = json_data[i]['sunset_time']
+    yesterday_value = json_data[i - 1]['sunset_time']
+    tomorrow_value = json_data[i + 1]['sunset_time']
     
     # Calculate the absolute differences with yesterday and tomorrow
     diff_yesterday = abs(today_value - yesterday_value)
