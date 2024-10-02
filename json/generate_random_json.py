@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 # Function to generate a random value for each attribute (customize as needed)
 def generate_random_values():
     return {
-        "sunset_time": random.randint(100000, 600000),  # Random integer between 1 and 100
-        "sunrise_time": round(random.uniform(0, 10), 2),  # Random float between 0 and 10, rounded to 2 decimals
+        "sunset_time": random.randint(17277576, 1727757623),  # Random integer between 1 and 100
+        "sunrise_time": random.randint(17277576, 1727757623),# round(random.uniform(0, 10), 2),  # Random float between 0 and 10, rounded to 2 decimals
         "value3": random.choice([True, False])  # Random boolean
     }
 
