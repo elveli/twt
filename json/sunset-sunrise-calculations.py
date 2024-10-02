@@ -18,9 +18,12 @@
  # https://api.opencagedata.com/geocode/v1/json?q=-22.6792%2C+14.5272&key=YOUR-API-KEY&pretty=1
 
 # def get_json_from_opencage():
+# for i in range(365):
+    get_url for each day
+    add to list
+    return list
 
-
-# 
+# loop_over_year
 
 import json
 from rich import print
