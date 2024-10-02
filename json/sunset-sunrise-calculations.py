@@ -17,25 +17,10 @@
 
  # https://api.opencagedata.com/geocode/v1/json?q=-22.6792%2C+14.5272&key=YOUR-API-KEY&pretty=1
 
-'''
-# Specify the file path and the string to remove
-file_path = "example.txt"
-string_to_remove = "Remove watcher:"
+# def get_json_from_opencage():
 
-# Step 1: Read the contents of the file
-with open(file_path, "r") as file:
-    content = file.read()
 
-# Step 2: Replace the specific string with ":"
-updated_content = content.replace(string_to_remove, ":")
-
-# Step 3: Write the updated content back to the file
-with open(file_path, "w") as file:
-    file.write(updated_content)
-print(f"The string '{string_to_remove}' has been removed from the file.")
-
-'''
-
+# 
 
 import json
 from rich import print
@@ -45,19 +30,8 @@ json_data = "year_data_2024.json" #"sample_sunrise_data.json"
 with open(json_data, "r") as file:
     json_data = json.load(file)
 
-print(json_data)
-print(len(json_data))
-# # Sample JSON data representing values for each day of the year
-# # Replace this with your actual JSON data
-# json_data = [
-#     {"date": "2024-01-01", "value": 10},
-#     {"date": "2024-01-02", "value": 20},
-#     # ... more data for each day
-#     {"date": "2024-12-31", "value": 15}
-# ]
-
-# Convert JSON data into a list of dictionaries if it's a string
-# json_data = json.loads(json_string)
+#print(json_data)
+#print(len(json_data))
 
 # Initialize variables to track the biggest difference
 max_difference = 0
@@ -84,7 +58,7 @@ for i in range(1, len(json_data) - 1):
 # Output the day with the largest difference
 print(f"The day with the biggest difference is {max_diff_day} with a difference of {max_difference}.")
 
-
+# results annotations sun rise apparent
 '''
 
 
