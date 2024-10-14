@@ -1,6 +1,6 @@
 
-import json,os,sys,certifi
-import requests
+import json,os,sys #,certifi
+#import requests
 import pprint
 from opencage.geocoder import OpenCageGeocode
 from pprint import PrettyPrinter

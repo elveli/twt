@@ -15,12 +15,13 @@ if not key:
 
 #url = "http://api.opencagedata.com/geocode/v1/json?key=key&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
 
-url = f"http://api.opencagedata.com/geocode/v1/json?key={key}&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
+#url = f"http://api.opencagedata.com/geocode/v1/json?key={key}&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
 
+url = f"https://api.opencagedata.com/geocode/v1/json?q=Rua+Cafel%C3%A2ndia%2C+Carapicu%C3%ADba%2C+Brasil&key={key}&pretty=1"
 
 response = requests.get(url)
 data = json.loads(response.text)
-
+printer.pprint(data)
 
 # Extract the location bounds from the results
 if 'results' in data and len(data['results']) > 0:
@@ -28,13 +29,20 @@ if 'results' in data and len(data['results']) > 0:
     print("in if")
     geometry = first_result.get('geometry')  # Get 'geometry' from the first result
     formatted = first_result.get('formatted')
+    annotations = first_result.get('annotations')
 
-    if formatted:
-        printer.pprint(formatted)
+    # if formatted:
+    #     printer.pprint(formatted)
+
+    if annotations:
+        #printer.pprint(annotations)
+        sunrise = annotations.get('sun')
+        printer.pprint(first_result['annotations']['sun']['rise']['nautical'])
+        printer.pprint(first_result['annotations']['sun']['set']['nautical'])
 
     if geometry:
         lat = geometry.get('lat')
-        printer.pprint(lat)
+        #printer.pprint(lat)
     else:
         print("Lat data is not available in the first result.")
 else:
@@ -48,14 +56,14 @@ in if
 dict_keys(['documentation', 'licenses', 'rate', 'results', 'status', 'stay_informed', 'thanks', 'timestamp', 'total_results'])
 (py_envs) ~/github/twt/json [main]
 $
-'''
 
-    ''' {'northeast': {'lat': 52.387833, 'lng': 9.7334894},
- 'southwest': {'lat': 52.387733, 'lng': 9.7333894}}
- '''
+
+#{'northeast': {'lat': 52.387833, 'lng': 9.7334894},
+#'southwest': {'lat': 52.387733, 'lng': 9.7333894}}
+#'''
 
 #printer.pprint(data)
-printer.pprint(data.keys())
+#printer.pprint(data.keys())
 
 # dict_keys(['documentation', 'licenses', 'rate', 'results', 'status', 'stay_informed', 'thanks', 'timestamp', 'total_results'])
 

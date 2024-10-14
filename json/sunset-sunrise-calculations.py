@@ -19,11 +19,29 @@
 
 # def get_json_from_opencage():
 # for i in range(365):
-    get_url for each day
-    add to list
-    return list
+   #  get_url for each day
+   #  add to list
+   #  return list
 
 # loop_over_year
+
+# useful links
+# https://opencagedata.com/api#annotations
+# https://blog.opencagedata.com/post/102277416388/the-sun-also-rises-but-when-exactly
+
+# "sun" : {
+#                "rise" : {
+#                   "astronomical" : 1415596380,
+#                   "civil" : 1415601120,
+#                   "nautical" : 1415598720
+#                },
+#                "set" : {
+#                   "astronomical" : 1415643300,
+#                   "civil" : 1415638560,
+#                   "nautical" : 1415640960
+#                }
+#             },
+# Enjoy! The full docs are on the API docs page, and as alays you can turn off annotations by setting no_annotations=1 in your query.
 
 import json
 from rich import print
