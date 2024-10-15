@@ -13,11 +13,14 @@ def generate_dates_for_year(year):
 
 # Function to fetch JSON data for each date from the API
 def fetch_data_for_dates(year):
-    api_url_template = "https://example.com/api/data?date={}"
+    #api_url_template = "https://example.com/api/data?date={}"
+    # https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2024-10-15
+    api_url_template = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date={}"
     results = []
 
     # Loop over each date in the year
     for date in generate_dates_for_year(year):
+        print(date)
         api_url = api_url_template.format(date)
         response = requests.get(api_url)
         
