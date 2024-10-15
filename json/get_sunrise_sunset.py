@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 # Function to get sunrise/sunset times from the Sunrise-Sunset API
 def get_sunrise_sunset(lat, lng, date):
     url = f"https://api.sunrise-sunset.org/json?lat={lat}&lng={lng}&date={date}&formatted=0"
+    #url = f"https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400"
     response = requests.get(url)
     data = response.json()
     
@@ -25,6 +26,26 @@ def get_sunrise_sunset_for_year(lat, lng):
         print(f"Date: {date_str}, Sunrise: {sunrise}, Sunset: {sunset}")
 
 # Example usage
+#https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
+lat=36.720160
+lng=-4.4203400
 if coordinates:
     get_sunrise_sunset_for_year(lat, lng)
 
+# https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
+# {
+# "results": {
+# "sunrise": "6:24:18 AM",
+# "sunset": "5:42:22 PM",
+# "solar_noon": "12:03:20 PM",
+# "day_length": "11:18:04",
+# "civil_twilight_begin": "5:59:35 AM",
+# "civil_twilight_end": "6:07:05 PM",
+# "nautical_twilight_begin": "5:29:33 AM",
+# "nautical_twilight_end": "6:37:07 PM",
+# "astronomical_twilight_begin": "4:59:36 AM",
+# "astronomical_twilight_end": "7:07:04 PM"
+# },
+# "status": "OK",
+# "tzid": "UTC"
+# }
