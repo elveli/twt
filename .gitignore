@@ -5,3 +5,4 @@ Thumbs.db
 .terraform.lock.hcl
 terraform.tfstate.backup
 terraform.tfstate
+*.txt
