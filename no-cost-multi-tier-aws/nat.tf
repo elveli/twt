@@ -1,9 +1,9 @@
-locals {
+/* locals {
   private_to_public_map = {
-    "private-subnet-1" = "public-subnet-1"
-    "private-subnet-2" = "public-subnet-2"
+    "no-cost-private-subnet-1" = "no-cost-public-subnet-1"
+    "no-cost-private-subnet-2" = "no-cost-public-subnet-2"
   }
-}
+} */
 
 # Elastic IPs for NAT Gateways (one per public subnet)
 resource "aws_eip" "no-cost-nat-eip" {

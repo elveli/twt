@@ -1,7 +1,7 @@
 locals {
   public_subnet_info = [
     for idx, az in var.availability_zones : {
-      name = "public-subnet-${idx + 1}"
+      name = "no-cost-public-subnet-${idx + 1}"
       cidr = var.public_subnets[idx]
       az   = az
     }
@@ -9,7 +9,7 @@ locals {
 
   private_subnet_info = [
     for idx, az in var.availability_zones : {
-      name = "private-subnet-${idx + 1}"
+      name = "no-cost-private-subnet-${idx + 1}"
       cidr = var.private_subnets[idx]
       az   = az
     }

@@ -57,10 +57,16 @@ variable "common_tags" {
 }
 
 # Map each private subnet to its corresponding public subnet (for NAT)
-variable "private_to_public_subnet_map" {
+/* variable "private_to_public_subnet_map" {
   default = {
     "private-subnet-1" = "public-subnet-1"
     "private-subnet-2" = "public-subnet-2"
   }
-}
+} */
 
+locals {
+  private_to_public_map = {
+    "no-cost-private-subnet-1" = "no-cost-public-subnet-1"
+    "no-cost-private-subnet-2" = "no-cost-public-subnet-2"
+  }
+}
