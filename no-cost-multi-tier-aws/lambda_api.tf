@@ -106,5 +106,3 @@ resource "aws_api_gateway_stage" "dev" {
   rest_api_id   = aws_api_gateway_rest_api.no-cost-dummy_api.id
   deployment_id = aws_api_gateway_deployment.api_deploy.id
 }
-
-
